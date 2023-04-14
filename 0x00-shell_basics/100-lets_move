@@ -1,2 +1,2 @@
 #!/bin/bash
-mkdir -p /tmp/u && mv [A-Z]* /tmp/u/
+for file in [A-Z]*; do [ -f "$file" ] && mv "$file" /tmp/u/; done
