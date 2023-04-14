@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1 | sort -k1.1d,1.1 -k1.2n | sed -e 's/^/"/' -e 's/$/"/' -e 's/^\.*/.&/' -e 's/\(.*\/\)$/\1/' | paste -sd',\n' -
+ls -1 -d .[0-9a-zA-Z]* */ | tr '\n' ',' | sed 's|,$|\n|'
