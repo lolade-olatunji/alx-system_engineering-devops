@@ -1,3 +1,2 @@
 #!/bin/bash
-ls -ap1 | LC_ALL=C grep -v "^\.\/\.$" | LC_ALL=C grep -v "^\.\/\.\.$" | sed 's/,$/\n/g' | LC_ALL=C sort -d --ignore-leading-blanks | sed -E 's/([0-9])/\1 /g' | sed -E 's/(\/$)/\1,/g'
-
+ls -1 -a -X -p | sed ':a
