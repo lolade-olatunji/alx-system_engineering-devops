@@ -12,9 +12,9 @@ global
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
-        # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=intermediate
-        ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-S>
-        ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256
+        # See: https://ssl-config.mozilla.org/#server=haproxy&server-version=2.0.3&config=inter>
+        ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDH>
+        ssl-default-bind-ciphersuites TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA2>
         ssl-default-bind-options ssl-min-ver TLSv1.2 no-tls-tickets
 
 defaults
@@ -41,11 +41,11 @@ frontend lolade-frontend
         default_backend lolade-backend
 
 frontend lolade-frontend-https
-        bind *:443 ssl crt /etc/haproxy/certs/clickviral.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.lolade.tech.pem
         http-request set-header X-Forwarded-Proto https
         default_backend lolade-backend
 
 backend lolade-backend
         balance roundrobin
-        server 412527-web-01 54.165.78.63 check
-        server 412527-web-02 54.82.198.145 check
+        server 412527-web-01 54.165.78.63:80 check
+        server 412527-web-02 54.82.198.145:80 check
