@@ -33,12 +33,12 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend lolae-frontend
+frontend lolade-frontend
         bind *:80
         mode http
         http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X_Forwarded-Proto http
-        default_backend clickviral-backend
+        default_backend lolade-backend
 
 frontend lolade-frontend-https
         bind *:443 ssl crt /etc/haproxy/certs/lolade.tech.pem
