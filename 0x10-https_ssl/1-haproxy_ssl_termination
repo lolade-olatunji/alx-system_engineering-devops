@@ -47,5 +47,5 @@ frontend lolade-frontend-https
 
 backend lolade-backend
         balance roundrobin
-        server 412527-web-01 54.165.78.63:80 check
-        server 412527-web-02 54.82.198.145:80 check
+        server 412527-web-01 35.153.57.254:80 check
+        server 412527-web-02 54.237.103.105:80 check
